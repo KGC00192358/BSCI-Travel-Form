@@ -1,0 +1,155 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+
+      <div class="form-group">
+        <label class="col-md-4">Faculty Name</label>
+        <input type="text" class="form-control"
+          formControlName="FacultyName"
+          #FacultyName />
+      </div>
+      <div *ngIf="angForm.controls['FacultyName'].invalid && (angForm.controls['FacultyName'].dirty || angForm.controls['FacultyName'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['FacultyName'].errors.required">
+          Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">BannerId</label>
+        <input type="text" class="form-control"
+          formControlName="BannerId"
+          #BannerId />
+      </div>
+      <div *ngIf="angForm.controls['BannerId'].invalid && (angForm.controls['BannerId'].dirty || angForm.controls['BannerId'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['BannerId'].errors.required">
+          BannerId is required.
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-md-4">Destination</label>
+        <textarea class="form-control" rows = 7 cols = "5"
+        formControlName="Destination"
+        #Destination></textarea>
+      </div>
+      <div *ngIf="angForm.controls['Destination'].invalid && (angForm.controls['Destination'].dirty || angForm.controls['Destination'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Destination'].errors.required">
+          Destination is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Purpose of Travel</label>
+        <textarea class="form-control" rows = 7 cols = "5"
+        formControlName="Purpose"
+        #Purpose></textarea>
+      </div>
+      <div *ngIf="angForm.controls['Purpose'].invalid && (angForm.controls['Purpose'].dirty || angForm.controls['Purpose'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Purpose'].errors.required">
+          Purpose is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Start Date</label>
+        <input type="text" class="form-control"
+          formControlName="StartDate"
+          #StartDate />
+      </div>
+      <div *ngIf="angForm.controls['StartDate'].invalid && (angForm.controls['StartDate'].dirty || angForm.controls['StartDate'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['StartDate'].errors.required">
+          Start Date is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">End Date</label>
+        <input type="text" class="form-control"
+          formControlName="EndDate"
+          #EndDate />
+      </div>
+      <div *ngIf="angForm.controls['EndDate'].invalid && (angForm.controls['EndDate'].dirty || angForm.controls['EndDate'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['EndDate'].errors.required">
+        End Date is required.
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-md-4">Size of Rental Car (N/A if none)</label>
+        <input type="text" class="form-control"
+          formControlName="CarSize"
+          #CarSize
+        />
+      </div>
+      <div *ngIf="angForm.controls['CarSize'].invalid && (angForm.controls['CarSize'].dirty || angForm.controls['CarSize'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['CarSize'].errors.required">
+          Car Size is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Reason for larger car, if any</label>
+        <textarea class="form-control" rows = 7 cols = "5"
+        formControlName="CarReason"
+        #CarReason></textarea>
+      </div>
+      <div *ngIf="angForm.controls['CarReason'].invalid && (angForm.controls['CarReason'].dirty || angForm.controls['CarReason'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['CarReason'].errors.required">
+          Reason is required.
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-md-4">FOP</label>
+        <input type="text" class="form-control"
+          formControlName="FOPName"
+          #FOPName
+        />
+      </div>
+      <div *ngIf="angForm.controls['FOPName'].invalid && (angForm.controls['FOPName'].dirty || angForm.controls['FOPName'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['FOPName'].errors.required">
+          FOP is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Comments about FOP</label>
+        <textarea class="form-control" rows = 7 cols = "5"
+        formControlName="FOPComments"
+        #FOPComments></textarea>
+      </div>
+      <div *ngIf="angForm.controls['FOPComments'].invalid && (angForm.controls['FOPComments'].dirty || angForm.controls['FOPComments'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['FOPComments'].errors.required">
+          Comments required (N/A if none).
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-md-4">Any Additional Comments</label>
+        <textarea class="form-control" rows = 7 cols = "5"
+        formControlName="AdditionalNotes"
+        #AdditionalNotes></textarea>
+      </div>
+      <div *ngIf="angForm.controls['AdditionalNotes'].invalid && (angForm.controls['AdditionalNotes'].dirty || angForm.controls['AdditionalNotes'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['AdditionalNotes'].errors.required">
+          Comments required (N/A if none).
+        </div>
+      </div>
+
+
+
+
+
+      <div class="form-group">
+        <button (click) = "addRequest(FacultyName.value, BannerId.value, Destination.value, Purpose.value, StartDate.value, EndDate.value, CarSize.value, CarReason.value, FOPName.value, FOPComments.value, AdditionalNotes.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid" >
+          Submit Request
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
